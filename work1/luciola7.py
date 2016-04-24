@@ -1,8 +1,10 @@
 """luciola7 work1"""
+import os
+py_path = os.path.dirname(os.path.abspath(__file__))
 
-READ_FILE_NAME = "nameslist.txt"
+input_file = py_path + "/nameslist.txt"
 
-with open(READ_FILE_NAME) as f:
+with open(input_file) as f:
     NAME_LIST = f.readlines()
     NAME_COUNT = {}
     for name in NAME_LIST:

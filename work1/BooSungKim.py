@@ -3,13 +3,18 @@
 
 # In[1]:
 
-ls
+# ls
 
 
 # In[20]:
 
+import os
+py_path = os.path.dirname(os.path.abspath(__file__))
+
+input_file = py_path + "/nameslist.txt"
+
 dict = {}
-with open("nameslist.txt", "r") as f:
+with open(input_file, "r") as f:
     names = f.readlines()
     
     for name in names:
@@ -24,18 +29,20 @@ with open("nameslist.txt", "r") as f:
 # In[21]:
 
 dict
+print(dict)
 
 
 # In[22]:
 
-ls
+# ls
 
 
 # In[28]:
 
 # Extra Work
+input_file = py_path + "/Training_01.txt"
 category_dict = {}
-with open("Training_01.txt", "r") as f:
+with open(input_file, "r") as f:
     filenames = f.readlines()
     
     for filename in filenames:
@@ -46,6 +53,8 @@ with open("Training_01.txt", "r") as f:
         else:
             category_dict[category] += 1
 
+category_dict
+print(category_dict)
 
 # In[ ]:
 

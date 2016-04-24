@@ -1,6 +1,11 @@
 # skyi first work
 
-textfile = open("namelist.txt",'r')
+import os
+py_path = os.path.dirname(os.path.abspath(__file__))
+
+input_file = py_path + "/nameslist.txt"
+
+textfile = open(input_file,'r')
 names = textfile.readlines()
 namelist = dict()
 for line in names:
@@ -21,8 +26,10 @@ textfile.close()
 print("*" * 50)
 
 # Extra
+input_file = py_path + "/Training_01.txt"
+
 categorylist = {}
-with open('Training_01.txt','r') as openfile:
+with open(input_file,'r') as openfile:
     lines = openfile.readlines()
     for line in lines:
         category = line.split('/')[2]

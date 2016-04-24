@@ -2,45 +2,23 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Python 3",
+			"name": "Python Debug Default",
+			"type": "python",
+			"request": "launch",
+			"stopOnEntry": true,
+			"program": "${file}"
+		},
+		{
+			"name": "Python3 Debug OS X",
 			"type": "python",
 			"request": "launch",
 			"stopOnEntry": true,
 			"program": "${file}",
-      "pythonPath":"/Library/Frameworks/Python.framework/Versions/3.5/bin/python3",
+			"pythonPath":"/Library/Frameworks/Python.framework/Versions/3.5/bin/python3",
 			"debugOptions": [
 				"WaitOnAbnormalExit",
 				"WaitOnNormalExit",
 				"RedirectOutput"
-			]
-		},
-		{
-			"name": "Python Console App",
-			"type": "python",
-			"request": "launch",
-			"stopOnEntry": true,
-			"program": "${file}",
-			"externalConsole": true,
-			"debugOptions": [
-				"WaitOnAbnormalExit",
-				"WaitOnNormalExit"
-			]
-		},
-		{
-			"name": "Django",
-			"type": "python",
-			"request": "launch",
-			"stopOnEntry": true,
-			"program": "${workspaceRoot}/manage.py",
-			"args": [
-				"runserver",
-				"--noreload"
-			],
-			"debugOptions": [
-				"WaitOnAbnormalExit",
-				"WaitOnNormalExit",
-				"RedirectOutput",
-				"DjangoDebugging"
 			]
 		}
 	]
