@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 
 web_url = 'http://www.vanityfair.com/society/2014/06/monica-lewinsky-humiliation-culture' 
 
- # HTML을 그대로 파일에 저장 
+# HTML을 그대로 파일에 저장 
 with request.urlopen(web_url) as f: 
     with open('article_html.txt', 'wb') as fout: 
         fout.write(f.read()) 
