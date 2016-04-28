@@ -13,7 +13,7 @@
 
 # 김부성 짱 갓부성
 from urllib import request 
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup
 
 
 web_url = 'http://www.vanityfair.com/society/2014/06/monica-lewinsky-humiliation-culture' 
