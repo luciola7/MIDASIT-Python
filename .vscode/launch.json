@@ -20,6 +20,19 @@
 				"WaitOnNormalExit",
 				"RedirectOutput"
 			]
+		},
+		{
+			"name": "Python3 Debug skyi",
+			"type": "python",
+			"request": "launch",
+			"stopOnEntry": true,
+			"program": "${file}",
+			"pythonPath": "C:/Python/Python35-32/python.exe",
+			"debugOptions": [
+				"WaitOnAbnormalExit",
+				"WaitOnNormalExit",
+				"RedirectOutput"
+			]
 		}
 	]
 }
