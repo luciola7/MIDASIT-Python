@@ -44,11 +44,20 @@ def read_urls(filename):
                 urlset.add(url)
 
         urllist = list(urlset)
-        urllist.sort()
 
-        servername = filename[filename.find('_')+1:]
+        server_name = filename.split('_')[0]
+        server_url = filename.split('_')[1]
 
-        return list(map(lambda x: servername+x, urllist))
+        # Part A,B : for animal picture
+        if server_name == 'animal':
+            urllist.sort()
+        # Part C : for place picture
+        elif server_name == 'place':
+            urllist.sort(key=extract_second_word)
+        else:
+            assert False
+
+        return list(map(lambda x: server_url+x, urllist))
 
 
 def download_images(img_urls, dest_dir):
@@ -65,24 +74,27 @@ def download_images(img_urls, dest_dir):
     except FileExistsError:
         pass
 
-    dest_dir = './' + dest_dir + '/'
+    dest_path = './' + dest_dir + '/'
     image_path_list = list()
     file_num = 0
     for img_url in img_urls:
-        temp_filename, headers = urllib.request.urlretrieve('http://'+img_url)
+        temp_path, headers = urllib.request.urlretrieve('http://'+img_url)
 
-        # '.jpg' for windows
-        new_filename = dest_dir + 'img' + str(file_num) + '.jpg'
+        new_filename = 'img' + str(file_num) + '.jpg'
 
         # for creating html
         image_path_list.append(new_filename)
 
+        # '.jpg' for windows
+        new_path = dest_path + new_filename
+
         file_num += 1
 
-        shutil.copyfile(temp_filename, new_filename)
+        shutil.copyfile(temp_path, new_path)
+        print('Download OK : ' + new_path)
 
     # Create html file
-    with open(dest_dir+'/index.html', mode='w', encoding='utf-8') as f:
+    with open(dest_path+'/index.html', mode='w', encoding='utf-8') as f:
         f.write('<vervatim>\n<html>\n<body>\n')
 
         for path in image_path_list:
@@ -91,6 +103,18 @@ def download_images(img_urls, dest_dir):
         f.write('\n<body>\n<html>')
 
     return
+
+
+def extract_second_word(fullpath):
+    words = fullpath.split('-')
+
+    for word in words:
+        if word.find('jpg') > -1:
+            return word
+
+    # should return before
+    assert False
+    return ''
 
 
 def main():
