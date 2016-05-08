@@ -60,6 +60,18 @@ def read_urls(filename):
         return list(map(lambda x: server_url+x, urllist))
 
 
+def extract_second_word(fullpath):
+    words = fullpath.split('-')
+
+    for word in words:
+        if word.find('.jpg') > -1:
+            return word
+
+    # should return before
+    assert False
+    return ''
+
+
 def download_images(img_urls, dest_dir):
     """Given the urls already in the correct order, downloads
     each image into the given directory.
@@ -103,18 +115,6 @@ def download_images(img_urls, dest_dir):
         f.write('\n<body>\n<html>')
 
     return
-
-
-def extract_second_word(fullpath):
-    words = fullpath.split('-')
-
-    for word in words:
-        if word.find('jpg') > -1:
-            return word
-
-    # should return before
-    assert False
-    return ''
 
 
 def main():
