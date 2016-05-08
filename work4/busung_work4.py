@@ -66,16 +66,29 @@ def download_images(img_urls, dest_dir):
         pass
 
     dest_dir = './' + dest_dir + '/'
-
+    image_path_list = list()
     file_num = 0
     for img_url in img_urls:
         temp_filename, headers = urllib.request.urlretrieve('http://'+img_url)
 
         # '.jpg' for windows
         new_filename = dest_dir + 'img' + str(file_num) + '.jpg'
+
+        # for creating html
+        image_path_list.append(new_filename)
+
         file_num += 1
 
         shutil.copyfile(temp_filename, new_filename)
+
+    # Create html file
+    with open(dest_dir+'/index.html', mode='w', encoding='utf-8') as f:
+        f.write('<vervatim>\n<html>\n<body>\n')
+
+        for path in image_path_list:
+            f.write('<img src="' + path + '">')
+
+        f.write('\n<body>\n<html>')
 
     return
 
