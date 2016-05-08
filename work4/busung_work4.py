@@ -9,7 +9,9 @@
 import os
 import re
 import sys
-import urllib
+import urllib.request
+import shutil
+
 
 """Logpuzzle exercise
 Given an apache logfile, find the puzzle urls and download the images.
@@ -26,6 +28,29 @@ def read_urls(filename):
     increasing order."""
     # +++your code here+++
 
+    with open(filename, 'r') as fin:
+        urlset = set()
+        while True:
+            each_log = fin.readline()
+
+            if not each_log:
+                break
+
+            # TODO : Convert this using regular expression
+
+            url = each_log.split(' ')[6]
+
+            if url.find('/puzzle/') > -1:
+                urlset.add(url)
+
+        urllist = list(urlset)
+        urllist.sort()
+
+        servername = filename[filename.find('_')+1:]
+
+        return list(map(lambda x: servername+x, urllist))
+
+
 def download_images(img_urls, dest_dir):
     """Given the urls already in the correct order, downloads
     each image into the given directory.
@@ -35,6 +60,24 @@ def download_images(img_urls, dest_dir):
     Creates the directory if necessary.
     """
     # +++your code here+++
+    try:
+        os.mkdir(dest_dir)
+    except FileExistsError:
+        pass
+
+    dest_dir = './' + dest_dir + '/'
+
+    file_num = 0
+    for img_url in img_urls:
+        temp_filename, headers = urllib.request.urlretrieve('http://'+img_url)
+
+        # '.jpg' for windows
+        new_filename = dest_dir + 'img' + str(file_num) + '.jpg'
+        file_num += 1
+
+        shutil.copyfile(temp_filename, new_filename)
+
+    return
 
 
 def main():
