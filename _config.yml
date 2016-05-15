@@ -16,3 +16,7 @@ baseurl: "/MIDASIT-Python" # MIDASIT-Python
 url: "http://luciola7.github.io/MIDASIT-Python" # the base hostname & protocol for your site
 twitter_username: my-twitter-username
 github_username:  luciola7
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
