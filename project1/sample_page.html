@@ -1,0 +1,982 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="No-Cache">
+<META name="robots" content="all,index,follow">
+<meta http-equiv="imagetoolbar" content="no">
+<META name="Subject" content="마이다스(MIDAS) 건축구조분야 홈페이지">
+<meta name="description" content="마이다스(MIDAS) 건축구조분야(MODS/midas Gen/midas ADS/midas Modeler/midas Drawing/midas Design+/midas SDS/midas Set) 홈페이지입니다.">
+<meta name="keywords" content="건축구조, 구조해석, 구조설계, 구조해석 프로그램, MODS, Gen, ADS, Modeler, Drawing, midas Gen, midas ADS, midas Modeler, midas Drawing, midas Design+, midas SDS, midas Set, 구조설계 프로그램, MIDAS Family Program, 마이다스 패밀리 프로그램, 웹인증">
+<meta name="author" content="마이다스(MIDAS) 프로그램의 제품 및 구매정보와 프로그램 기술지원 서비스를 포함한 다양한 건축구조분야 기술정보를 제공합니다.">
+<META name="Location" content="South Korea">
+<META name="Publisher" content="MIDAS Information Tecnology">
+<META name="Other Agent" content="JiWoong Kim">
+<META name="Reply-To(Email)" content="webmaster@midasit.com">
+<META name="Copyright" content="Copyrightⓒ since 1989 MIDAS Information Technology Co., Ltd.">
+<META name="content-language" content="kr">
+<META name="build" content="2010.02.11">
+<!-- 호환성 보기 끄기 -->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<!-- 호환성 보기 끄기 끝 -->
+<title>마이다스(MIDAS) 건축구조분야 홈페이지</title>
+<!------------------- jQuery ---------------------->
+<script src="/building/_jQuery/jquery.js" type="text/javascript"></script>
+<script src="/building/_jQuery/documentation.js" type="text/javascript"></script>
+<script src="/building/_jQuery/jquery.form.js" type="text/javascript" language="javascript"></script>
+
+<script src="/building/_jQuery/jquery_user.js" type="text/javascript" language="javascript"></script>
+<!------------------- jQuery ---------------------->
+<script language=javascript src='/building/_js/embeded.js'></script>
+<script language="javascript" src='/building/flash/js/flash_url.js'></script>
+<script language=javascript src='/building/_htmlarea/htmlarea.js'></script>	<!-- htmlarea -->
+<script src="/building/_js/functions.js"></script>
+<link href="/building/css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript"> 
+function layerMax(){ 
+ document.all['flashArea'].style.height = 280; //확장사이즈 
+} 
+function layerMin(){ 
+ document.all['flashArea'].style.height = 55; //축소사이즈 
+} 
+</script> 
+
+<!--//수식적용 스크립트//-->
+<script language="javascript" type="text/javascript">
+
+document.createElement("tex");
+document.createElement("texeq");
+
+var mathtex_server = "http://www.forkosh.dreamhost.com/mathtex.cgi";
+
+function generateLink(code) {   
+    return "<img src=" + mathtex_server + "?" + code + ">";
+}
+
+function generateTeX(tag) {
+    var eqn = window.document.getElementsByTagName(tag);
+    for (var i=0; i<eqn.length; i++) {
+        if (tag == "tex") {
+            eqn[i].innerHTML = generateLink(eqn[i].innerHTML);
+        }
+		if (tag == "texeq") { 
+			eqn[i].innerHTML = generateLink(eqn[i].innerHTML);
+		} 
+    }
+}
+</script>
+<script language="JavaScript">
+<!--
+// 링크 점선 없애기-----------
+function bluring(){
+if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG") document.body.focus();
+}
+document.onfocusin=bluring;
+// -->
+</script>
+<script type="text/javascript">
+<!--
+function setpng24(obj) { 
+  obj.width=obj.height=1; 
+  obj.className=obj.className.replace(/\bpng24\b/i,''); 
+  obj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+ obj.src +"',sizingMethod='image');" 
+  obj.src='';  
+  return ''; 
+}
+-->
+</script>
+<!--google kr 2016.01.26-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72842286-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body >
+<!----inc_slide.asp 필요한 함수만 쓰면 됨 ----------->
+<!------------ 반투명 백 테이블 ------------------->
+<table id='FullTable' width='100%' height='100%' background='http://midasbuilding.com.cn/images/info/color_000.png' style="filter:alpha(opacity=50);VISIBILITY: hidden;position:absolute;;left:0;top:0;opacity: 0.5;-moz-opacity:0.5;z-index:11;">
+	<tr>
+		<td align='center'></td>
+	</tr>
+</table>
+<!------------ 반투명 백 테이블 ------------------->
+<!------------ 슬라이드 테이블 ------------------->
+<table id='FullSlideIfr' width='100%' height='100%' border='0' style="VISIBILITY: hidden;position:absolute;;left:0;top:0;z-index:12;">
+	<TR height='100%'>
+		<td align='center'>
+			<table>
+				<tr>
+					<td align='right'><a href='javascript:imgFullSlideClose();'><img src="http://midasbuilding.com.cn/images/info/x.gif" border=0></a></td>
+				</tr>
+				<tr>
+					<td align='center'>
+						<iframe id='ifram_Slide' name='ifram_Slide' src='#' width='100' height='100' frameBorder=0 scrolling=no></iframe>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</TR>
+</table>
+<!------------ 슬라이드 테이블 ------------------->
+<!------------ 웹사이트 테이블 ------------------->
+<table id='FullWebSiteIfr' width='100%' height='100%' border='0' style="VISIBILITY: hidden;position:absolute;;left:0;top:0;z-index:13;">
+	<TR height='100%'>
+		<td align='center'>
+			<table>
+				<tr>
+					<td align='right'><a href='javascript:imgFullSlideClose();'><img src="http://midasbuilding.com.cn/images/info/x.gif" border=0></a></td>
+				</tr>
+				<tr>
+					<td align='center'>
+						<iframe id='ifram_WebSite' name='ifram_WebSite' src='#' width='100' height='100' frameBorder=0 scrolling=no></iframe>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</TR>
+</table>
+<!------------ 웹사이트 테이블 ------------------->
+<!------------ 동영상 테이블 ------------------->
+<table id='FullWebMOVIfr' width='100%' height='100%' border='0' style="VISIBILITY: hidden;position:absolute;;left:0;top:0;z-index:14;">
+	<TR height='100%'>
+		<td align='center'>
+			<table>
+				<tr>
+					<td align='right'><a href='javascript:imgFullSlideClose();'><img src="http://midasbuilding.com.cn/images/info/x.gif" border=0></a></td>
+				</tr>
+				<tr>
+					<td align='center'>
+						<iframe id='ifram_WebMOV' name='ifram_WebMOV' src='#' width='100' height='100' frameBorder=0 scrolling=no></iframe>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</TR>
+</table>
+<!------------ 동영상 테이블 ------------------->
+<script>
+		function imgFullSlide(strDir,strFiles,strPPT,nWidth,nHeight){
+			FullSlideIfr.style.visibility = "visible";
+            FullSlideIfr.style.top = document.body.scrollTop;
+			FullTable.style.width = document.body.scrollWidth;
+			FullTable.style.height = document.body.scrollHeight;
+            FullTable.style.visibility = "visible";
+			document.getElementById("ifram_Slide").contentWindow.location.href="/building/_inc/inc_slide_popup.asp?strDir="+strDir+'&strFiles='+strFiles+'&strPPT='+strPPT+'&nWidth='+nWidth+'&nHeight='+nHeight;
+
+		}
+		/// 슬라이드 닫음
+		function imgFullSlideClose(){
+            FullSlideIfr.style.visibility = "hidden";
+            FullWebSiteIfr.style.visibility = "hidden";
+            FullWebMOVIfr.style.visibility = "hidden";
+			FullTable.style.visibility = "hidden";
+			document.ifram_Slide.location.href="/Geotech/blank.asp";
+			document.ifram_WebMOV.location.href="/Geotech/blank.asp";
+		}
+
+		function imgFullSlideWEBSite(webSite,nWidth,nHeight){	// 가로 세로 창 사이즈가 0 이면 자동 조절됩니다.
+			FullWebSiteIfr.style.visibility = "visible";
+            FullWebSiteIfr.style.top = document.body.scrollTop;
+
+			if (nWidth > 0 )
+			{
+				document.getElementById("ifram_WebSite").style.width = nWidth;
+			}
+			if (nHeight > 0 )
+			{
+				document.getElementById("ifram_WebSite").style.height = nHeight;
+			}
+
+			FullTable.style.width = document.body.scrollWidth;
+			FullTable.style.height = document.body.scrollHeight;
+            FullTable.style.visibility = "visible";
+			document.getElementById("ifram_WebSite").contentWindow.location.href=webSite;
+
+		}
+
+		function imgFullSlideMOV(webSite,nWidth,nHeight,bid,nIdx){	// 가로 세로 창 사이즈가 0 이면 자동 조절됩니다.
+			FullWebMOVIfr.style.visibility = "visible";
+            FullWebMOVIfr.style.top = document.body.scrollTop;
+
+			if (nWidth > 0 )
+			{
+				document.getElementById("ifram_WebMOV").style.width = nWidth;
+			}
+			if (nHeight > 0 )
+			{
+				document.getElementById("ifram_WebMOV").style.height = nHeight;
+			}
+
+			FullTable.style.width = document.body.scrollWidth;
+			FullTable.style.height = document.body.scrollHeight;
+            FullTable.style.visibility = "visible";
+			document.getElementById("ifram_WebMOV").contentWindow.location.href="/geotech/training/player.asp?bid="+bid+"&idx="+nIdx+"&strMov=" + webSite;
+
+		}
+
+		function imgFullSlideHTML(webSite,nWidth,nHeight,bid,nIdx){	// 가로 세로 창 사이즈가 0 이면 자동 조절됩니다.
+			window.open("/building/training/player_open.asp?bid="+bid+"&idx="+nIdx+"&strMov=" + webSite,"Movie",set_centerALL(1280,825,0,0,0));
+/*
+			FullWebMOVIfr.style.visibility = "visible";
+            FullWebMOVIfr.style.top = document.body.scrollTop;
+
+			if (nWidth > 0 )
+			{
+				document.getElementById("ifram_WebMOV").style.width = nWidth;
+			}
+
+			if (nHeight > 0 )
+			{
+				document.getElementById("ifram_WebMOV").style.height = nHeight;
+			}
+
+			FullTable.style.width = document.body.scrollWidth;
+			FullTable.style.height = document.body.scrollHeight;
+            FullTable.style.visibility = "visible";
+			document.getElementById("ifram_WebMOV").contentWindow.location.href=webSite + "?bid="+bid+"&idx="+nIdx+"&strMov=" + webSite;
+			document.getElementById("ifram_WebMOVIn").contentWindow.location.href="/geotech/training/player_close.asp?bid="+bid+"&idx="+nIdx+"&strMov=" + webSite;
+*/
+		}
+
+		function helght_all(v){
+			var f
+			f = eval("document.all." + v );
+			f.height = eval(f.name+".document.body.scrollHeight");
+			f.width = eval(f.name+".document.body.scrollWidth");
+		}
+</script>
+ 
+<table width="1000" border="0" align="center" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" valign="top">
+	<table width="935" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td height="48">
+			<table width="935" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><a href="/building/index.asp"><img src="/building/images/common/logo.gif" alt="logo" /></a></td>
+			
+					<td width="37"><a href="/building/membership/login_out.asp"><img src="/building/images/common/um_logout.gif" onmouseover="this.src='/building/images/common/um_logout_on.gif'" onmouseout="this.src='/building/images/common/um_logout.gif'" /></a></td>
+					<td width="11"><img src="/building/images/common/um_line.gif" /></td>
+					<td width="37"><a href="/building/membership/contract.asp"><img src="/building/images/common/um_my.gif" onmouseover="this.src='/building/images/common/um_my_on.gif'" onmouseout="this.src='/building/images/common/um_my.gif'"/></a></td>
+					<td width="11"><img src="/building/images/common/um_line.gif" /></td>
+			
+					<td width="36"><a href="/building/Purchase/Purchase.asp"><img src="/building/images/common/um_purch.gif" onmouseover="this.src='/building/images/common/um_purch_on.gif'" onmouseout="this.src='/building/images/common/um_purch.gif'" /></a></td>
+					<td width="11"><img src="/building/images/common/um_line.gif" /></td>
+					<td width="37"><a href="/building/news/news.asp"><img src="/building/images/common/um_notice.gif" onmouseover="this.src='/building/images/common/um_notice_on.gif'" onmouseout="this.src='/building/images/common/um_notice.gif'" /></a></td>
+					<td width="11"><img src="/building/images/common/um_line.gif" /></td>
+					<td width="37"><a href="/building/sitemap/sitemap.asp"><img src="/building/images/common/um_sitemap.gif" onmouseover="this.src='/building/images/common/um_sitemap_on.gif'" onmouseout="this.src='/building/images/common/um_sitemap.gif'" /></a></td>
+					<!--
+					<td width="11"><img src="/building/images/common/um_line.gif" /></td>
+					<td width="62"><a href="http://midasit.com" target="_blank"><img src="/building/images/common/um_midasit.gif" onmouseover="this.src='/building/images/common/um_midasit_on.gif'" onmouseout="this.src='/building/images/common/um_midasit.gif'" /></a></td>
+					-->
+					<td width="10"></td>
+					<td width="144"><TABLE border=0 cellpadding=0 cellspacing=0>
+					<form name="TotsearchFormS" method="post" action="/building/search/search.asp" >
+					<input type="hidden" name="multi_search" value="">
+					<input type="hidden" name="multi_search_text" value=''>
+					<input type="hidden" name="bTagC" value=''>
+					<input type="hidden" name="bid" value=''>
+					<input type="hidden" name="SearchCode" value='midasit'>
+					<TR>
+						<td width="120" height="20" background="/building/images/common/main_search.gif"><input type="text" name="strTSearch_Txt" size="15" class="textarea_trans" style="height:16px"><!---***투명 텍스트에이리어 적용 ::::class="textarea_trans"----></td>
+						<td width="24" height="20"><input type="image" src="/building/images/common/main_search_btn.gif"></td>
+					</TR>
+					</form>
+					</TABLE></td>
+				</tr>
+			</table>
+		</td>
+	  </tr>
+	  <tr>
+		<td>
+		<table width=100% border=0 cellpadding=0 cellspacing=0>
+			<tr>
+				<td width=935 height="52" valign="top">
+						<script type='text/javascript' src='/building/_jQuery/jquery-1.4.4.js'></script>
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+
+<style type="text/css">
+<!--
+#gnb_product {
+	position:absolute;
+	left:0px;
+	top:34px;
+	width:935px;
+	height:420px;
+	z-index:99;
+	border:2px solid #000000;
+	background:#f2f2f2 url('/building/images/gnb/nav_background.jpg') center top no-repeat;;
+}
+
+#gnb_support {
+	position:absolute;
+	left:0px;
+	top:34px;
+	width:935px;
+	height:250px;
+	z-index:99;
+	border:1px solid #d2d2d2;
+	background-color:#ffffff;
+}
+
+.gnb_2depth         { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#666666; text-decoration:none; font-size:11px; line-height:30px; letter-spacing:-1px;}
+.gnb_2depth:link    { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#666666; text-decoration:none; font-size:11px; line-height:30px; letter-spacing:-1px;}
+.gnb_2depth:visited { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#666666; text-decoration:none; font-size:11px; line-height:30px; letter-spacing:-1px;}
+.gnb_2depth:active  { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#666666; text-decoration:none; font-size:11px; line-height:30px; letter-spacing:-1px;}
+.gnb_2depth:hover   { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#0f9804; text-decoration:underline; font-size:11px; line-height:30px; letter-spacing:-1px;}
+
+
+.gnb_3depth         { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#999999; text-decoration:none; font-size:11px; line-height:14px; letter-spacing:-1px;}
+.gnb_3depth:link    { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#999999; text-decoration:none; font-size:11px; line-height:14px; letter-spacing:-1px;}
+.gnb_3depth:visited { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#999999; text-decoration:none; font-size:11px; line-height:14px; letter-spacing:-1px;}
+.gnb_3depth:active  { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#999999; text-decoration:none; font-size:11px; line-height:14px; letter-spacing:-1px;}
+.gnb_3depth:hover   { font-family:'돋움', Dotum, AppleGothic, sans-serif; color:#0f9804; text-decoration:underline; font-size:11px; line-height:14px; letter-spacing:-1px;}
+
+-->
+</style>
+<!-- gnb 시작 -->
+<div style="position:relative;">
+	
+
+<!-- 제품 및 구매정보 시작 -->
+<div id="gnb_product" style="display:none;">
+	<!-- 시작 -->
+	<div class="nav">
+		<ul>
+			<li>
+				<img src="/building/images/gnb/plant-48.png" alt="midas Plant">
+				<strong>Plant</strong>
+				<a href="/building/products/products.asp?nCat=2112&idx=256171" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=2112&idx=256171" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/gen-48.png" alt="midas Gen">
+				<strong>Gen</strong>
+				<a href="/building/products/products.asp?nCat=535&idx=32101" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=535&idx=32101" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/ads-48.png" alt="midas ADS">
+				<strong>ADS</strong>
+				<a href="/building/products/products.asp?nCat=535&idx=32638" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=535&idx=32638" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/modeler-48.png" alt="midas Modeler">
+				<strong>Modeler</strong>
+				<a href="/building/products/products.asp?nCat=535&idx=32639" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=535&idx=32639" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/drawing-gen-48.png" alt="midas Drawing">
+				<strong>Drawing</strong>
+				<a href="/building/products/products.asp?nCat=535&idx=32640" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=535&idx=32640" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/foundation-48.png" alt="midas Foundation">
+				<strong>Foundation</strong>
+				<a href="/building/products/products.asp?nCat=2113&idx=256173" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=2113&idx=256173" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/drawing-48.png" alt="Drawing(CAD)">
+				<strong>Drawing(CAD)</strong>
+				<a href="/building/products/products.asp?nCat=2114&idx=256178" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=2114&idx=256178" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/designplus-48.png" alt="midas Design+">
+				<strong>Design+</strong>
+				<a href="/building/products/products.asp?nCat=535&idx=32637" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=535&idx=32637" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/sds-48.png" alt="midas SDS">
+				<strong>SDS</strong>
+				<a href="/building/products/products.asp?nCat=535&idx=32635" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=535&idx=32635" class="btnPurchase">구매정보</a>
+			</li>
+			<li>
+				<img src="/building/images/gnb/gsd-gen-48.png" alt="midas GSD">
+				<strong>GSD</strong>
+				<a href="/building/products/products.asp?nCat=535&idx=159209" class="btnInfomation">제품정보</a>
+				<a href="/building/purchase/class.asp?nCat=535&idx=159209" class="btnPurchase">구매정보</a>
+			</li>
+		</ul>
+		<div class="right">
+			<a href="/building/application/gallery.asp" class="gen">Gen 적용사례</a>
+			<a href="http://midas-plant.com/product/midas_plant.asp#projectGallery" target="_blank" class="plant">Plant 적용사례</a>
+			<a href="/building/mods/mods.asp" class="mods">MODS 안내</a>
+		</div>
+	</div>
+	<!-- // 시작 -->
+</div>
+<!-- 제품 및 구매정보 끝 -->
+
+
+
+<!-- 기술지원 시작 -->
+<div id="gnb_support"  style="display:none;">
+  <div style="border-top:2px solid #f6f6f6;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:14px;">
+      <tr>
+        <td valign="top">
+        
+        <!-- ad -->
+        <div style="margin:11px 0 0 30px; width:155px; heigh:190px;"><a href="/building/training/education.asp"><img src="/building/images/gnb/promotiom_online.gif" border="0" alt="온라인 학습 바로가기" ></a></div>
+        <!-- /ad -->
+        
+        </td>
+        <td width="114" valign="top">
+        
+        <!-- MQCS -->
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a href="/building/MQCS/iso.asp" class="gnb_2depth">MQCS란?</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/MQCS/bug.asp" class="gnb_2depth">버그관리체계</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/MQCS/certification.asp" class="gnb_2depth">인증자료</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/MQCS/algorithm.asp" class="gnb_2depth">알고리즘</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/MQCS/verification.asp" class="gnb_2depth">검증예제</a></td>
+          </tr>
+        </table>
+        <!-- /MQCS -->
+        
+        </td>
+        <td width="114" valign="top">
+        
+        <!-- 기술상담 -->
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a href="/building/support/faq.asp" class="gnb_2depth">FAQ</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/support/qna.asp" class="gnb_2depth">질문과답변</a></td>
+          </tr>
+        </table>
+        <!-- /기술상담 -->
+        
+        </td>
+        <td width="114" valign="top">
+        
+        <!-- 전문가 칼럼 -->
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a href="/building/column/column_imglist.asp" class="gnb_2depth">전문가칼럼</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/column/specialist_info.asp" class="gnb_2depth">전문가 그룹이란?</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/column/specialist.asp" class="gnb_2depth">전문가소개</a></td>
+          </tr>
+        </table>
+        <!-- /전문가 칼럼 -->
+        
+        </td>
+        <td width="114" valign="top">
+        
+        <!-- 기술자료 -->
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a href="/building/techpaper/txt_list.asp" class="gnb_2depth">MIDAS노트</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/techpaper/tech_papers.asp" class="gnb_2depth">프로그램 기술자료</a></td>
+          </tr>
+        </table>
+        <!-- /기술자료 -->
+        
+        </td>
+        <td width="114" valign="top">
+        
+        <!-- 교육센터 -->
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a href="/building/education/guide.asp" class="gnb_2depth">교육가이드</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/training/education.asp" class="gnb_2depth">온라인 학습</a></td>
+          </tr>
+<!--
+		  <tr>
+            <td><a href="/building/education/schedule.asp" class="gnb_2depth">오프라인 교육</a></td>
+          </tr>
+-->
+		  <tr>
+            <td><a href="/building/tutorials/list.asp" class="gnb_2depth">따라하기</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/education/img_list.asp" class="gnb_2depth">세미나 다시보기</a></td>
+          </tr>
+        </table>
+        <!-- /교육센터 -->
+        
+        </td>
+        <td width="114" valign="top">
+        
+        <!-- 다운로드 -->
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a href="/building/Downloads/list.asp" class="gnb_2depth">프로그램 다운로드</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/Downloads/list.asp?nCat2=580" class="gnb_2depth">매뉴얼 다운로드</a></td>
+          </tr>
+          <tr>
+            <td><a href="/building/Downloads/evaluation.asp" class="gnb_2depth">체험판 신청..</a></td>
+          </tr>
+        </table>
+        <!-- /다운로드 -->
+        
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!-- 기술지원 끝 -->
+
+
+<table width="935" border="0" cellspacing="0" cellpadding="0" style="background-image: url(/building/images/gnb/bg_gnb.gif); background-position:right bottom; background-repeat:no-repeat; border-bottom:2px solid #f6f6f6;">
+  <tr>
+	<TD colspan="4" height="1" id="topSpace"></td>
+  </tr>
+  <tr>
+	<Td width='1' id="leftSpace" bgcolor="#000000"></td>
+    <td width="204" height="33" id="gnbProduct"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu01','','/building/images/gnb/menu01_on.gif',1)"><img src="/building/images/gnb/menu01_off.gif" name="menu01" border="0"></a></td>
+	<td id="gnbSupport">
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<TD width="46"></td>
+				<td width="114"><a href="/building/MQCS/iso.asp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu02','','/building/images/gnb/menu02_on.gif',1)"><img src="/building/images/gnb/menu02_off.gif" alt="MQCS" name="menu02" border="0"></a></td>
+				<td width="114"><a href="/building/support/faq.asp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu03','','/building/images/gnb/menu03_on.gif',1)"><img src="/building/images/gnb/menu03_off.gif" alt="기술상담" name="menu03" border="0"></a></td>
+				<td width="114"><a href="/building/column/column_imglist.asp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu04','','/building/images/gnb/menu04_on.gif',1)"><img src="/building/images/gnb/menu04_off.gif" alt="전문가 칼럼" name="menu04" border="0"></a></td>
+				<td width="114"><a href="/building/techpaper/txt_list.asp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu05','','/building/images/gnb/menu05_on.gif',1)"><img src="/building/images/gnb/menu05_off.gif" alt="기술자료" name="menu05" border="0"></a></td>
+				<td width="114"><a href="/building/education/guide.asp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu06','','/building/images/gnb/menu06_on.gif',1)"><img src="/building/images/gnb/menu06_off.gif" alt="교육센터" name="menu06" border="0"></a></td>
+				<td width="114"><a href="/building/Downloads/list.asp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu07','','/building/images/gnb/menu07_on.gif',1)"><img src="/building/images/gnb/menu07_off.gif" alt="다운로드" name="menu07" border="0"></a></td>
+			</tr>
+		</table>
+	</td>
+	<Td width='1' id="rightSpace"></td>
+  </tr>
+</table>
+</div>
+	<script type='text/javascript'>
+        $(function() {
+
+			$('#gnbProduct').mouseenter(function(){ // 들어올때
+				$('#gnb_product').show(200);
+				$('#gnb_support').hide('fast');
+			});
+
+			$('#topSpace').mouseleave(function(){ $('#gnb_product').hide('fast');$('#gnb_support').hide('fast'); });
+			$('#leftSpace').mouseleave(function(){ $('#gnb_product').hide('fast');$('#gnb_support').hide('fast'); });
+			$('#rightSpace').mouseleave(function(){ $('#gnb_product').hide('fast');$('#gnb_support').hide('fast'); });
+			$('#gnb_product').mouseleave(function(){ $('#gnb_product').hide('fast'); });
+			$('#gnb_product').mouseleave(function(){ $('#gnb_support').hide('fast'); });
+
+			$('#gnb_support').mouseleave(function(){ $('#gnb_support').hide('fast'); });
+			$('#gnb_support').mouseleave(function(){ $('#gnb_support').hide('fast'); });
+
+
+			$('#gnbSupport').mouseenter(function(){ // 들어올때
+				$('#gnb_support').show(200);
+				$('#gnb_product').hide('fast');
+			});
+		
+		});
+	</script>
+
+				</td>
+			</tr>
+		</table>
+		</td>
+	  </tr>	
+	  <tr>
+		<td bgcolor="e5e5e5">
+
+		<table width="100%" border="0" cellspacing="1" cellpadding="0">
+		  <tr>
+			<td width="188" valign="top" bgcolor="#FFFFFF">
+				
+				<!--left Menu-->
+<div id="lnb" style="">
+  <table class="lnb" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top" class="top"><img src="/building/images//lnb/lnb_title_6.gif" ></td>
+    </tr>
+    <tr>
+      <td valign="top" class="title_text"><img src="/building/images//lnb/title_text.gif" ></td>
+    </tr>
+    <tr>
+      <td height="10"></td>
+    </tr>
+	
+    <tr>
+      <td class="nemu_on"><a href="/building/support/faq.asp" class="lnb_2depth_on">FAQ</a></td>
+    </tr>
+	
+    <tr>
+      <td class="nemu_off"><a href="/building/support/qna.asp" class="lnb_2depth_off">질문과 답변</a></td>
+    </tr>
+	
+  </table>
+</div>
+			</td>
+			<td align="center" valign="top" bgcolor="#FFFFFF"><table width="660" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="45">&nbsp;</td>
+              </tr>
+              <tr>
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td class="title"><img src="/building/images//common/page_topTitle.gif" width="22" height="31" align="absmiddle">FAQ</td>
+                    <td align="right" class="navi">
+					<img src="/building/images//common/bu_navi.gif" width="16" height="10" align="absmiddle">HOME
+					
+					<img src="/building/images//common/bu_navi_arrow.gif" width="14" height="10" align="absmiddle">기술상담
+					<img src="/building/images//common/bu_navi_arrow.gif" width="14" height="10" align="absmiddle">FAQ
+					</td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><img src="/building/images//common/page_tbar.gif" width="660" height="30"></td>
+              </tr>
+              <tr>
+                <td>
+<!-------------//컨텐츠//------------------>
+<TABLE width="660" border="0" cellspacing="0" cellpadding="0">
+<TR>
+	<TD>
+	<table width="660" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td height="2" bgcolor="52b535"></td>
+	  </tr>
+	  <tr>
+		<td>
+		
+		<!--view-->
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+			<td width="100" height="30" bgcolor="f6f6f6" align="center" class="boardBar_title">제목</td>
+			<td width="560" colspan="5" class="boardSubject"><b>ADS에서 지상1층, 지하1층 plan 상에서는 없던 절점이 3D Model View로 확인하면 Plan에 없던 절점이 생성되고 삭제가 되지 않습니다. 설계결과에 영향을 미치는 것은 아닌가요?</b></td>
+		  </tr>
+		  <tr>
+			<td height="1" colspan="6" bgcolor="d2d2d2"></td>
+		  </tr>
+		  <tr>
+			<td width="100" height="30" bgcolor="f6f6f6" align="center" class="boardBar_title">프로그램</td>
+			<td width="150" class="board_no_gray" align="center">midas ADS</td>
+			<td width="100" align="center" bgcolor="f6f6f6" class="boardBar_title">기능</td>
+			<td width="125" class="board_no_gray" align="center">View</td>
+			<td width="100" align="center" bgcolor="f6f6f6" class="boardBar_title">조회수</td>
+			<td width="79" class="board_no_gray" align="center">714</td>
+		  </tr>
+		  <tr>
+			<td height="1" colspan="6" bgcolor="d2d2d2"></td>
+		  </tr>
+		  <tr>
+			<td height="1" colspan="6" bgcolor="c4c4c4"></td>
+		  </tr>
+		  <tr>
+			<td colspan="6">
+			<!---등록한 글--->
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+				<td style="padding: 20px 20px 20px 20px">
+					<TABLE width="100%" border="0" cellspacing="3" cellpadding="0" bgcolor="#52b535">
+					<TR>
+						<TD bgcolor="#ffffff">
+							<table width="100%" border="0" cellspacing="2" cellpadding="0">
+							  <tr>
+								<td class="greenTitle" valign="top" width="80"><img src="/building/images/support/q_f.gif" width="73" height="20" align="absmiddle"></td>
+								<td><FONT color=#009933>ADS에서 지상1층, 지하1층 plan 상에서는 없던 절점이 3D Model View로 확인하면 Plan에 없던 절점이 생성되고 삭제가 되지 않습니다. 설계결과에 영향을 미치는 것은 아닌가요?</FONT></td>
+							  </tr>
+							</table>
+						</TD>
+					</TR>
+					</TABLE>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="padding: 20px 20px 0px 20px">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					  <tr>
+						<td class="greenTitle"><img src="/building/images/support/q_a.gif" width="73" height="20" align="absmiddle"></td>
+					  </tr>
+					</table>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="padding: 5px 20px 5px 20px"><img src="/building/images/support/q_dotline.gif" width="620" height="24" align="absmiddle"></td>
+			  </tr>
+			  <tr>
+				<td class="boardText">
+					<P>설계결과에 영향을 미치지는 않습니다. 단 사용자에게 혼란을 유발할 수 있으므로 가급적이면 모델링을 할 때 원점에서 시작하는 것이 좋습니다.<BR>3D Model View는 입력된 모델정보를 이용하여 3차원 해석모델을 자동으로 생성하여 보여주는 기능입니다. 이 모드에서는 모델데이터를 추가하거나 변경할 수 없습니다. 또한 3D Model View에서 생기는 절점은 프로그램이 해석을 하기 위하여 자동으로 요소를 나누어 메쉬를 생성하거나 Rigid Diaphragm이 생성되는 등의 이유로 형성되며 설계결과에 잘못된 영향을 미치지는 않습니다.<BR> 간혹 구조물 외부에 자동으로 절점이 형성되는 경우가 있는데, 이것은 모델링을 원점에서 시작하지 않고 멀리 떨어진 곳에서 모델링을 하면 발생할 수 있는 현상입니다. 사용자가 질량을 고려하지 않도록 선택한 층(ex. 1층이나 지하층의 경우 등)의 Slab Type을 Rigid Diaphragm으로 설정하게 되면 Diaphragm의 중심이 자동으로 원점 주변에 잡히게 되면서 생성되는 절점일 수 있습니다.<BR>
+<P></P>
+<P align=center><IMG border=0 src="http://admin.midasuser.com/UploadFiles2/119/pic_ads.JPG" valign="top"><BR>그림 1. Model view(Rigid Diaphragm)</P>
+				</td>
+			  </tr>
+			</table></td>
+		  </tr>
+		</table>
+		<!--view-end-->
+		</td>
+	  </tr>
+	  <tr>
+		<td class="space">
+			<!---- 첨부파일 들어가는곳 ----------->
+					<!--첨부파일 들어가는 곳--->
+
+		<!--첨부파일 들어가는 곳-->
+			<!---- 첨부파일 들어가는곳 ----------->
+		</td>
+	  </tr>
+	  <tr>
+		<td height="2" bgcolor="52b535"></td>
+	  </tr>
+	  <tr>
+		<td height="50" align="center">
+			<A HREF="./faq.asp?idx=&sk=&bid=119&strCate=&strCate2="><img src="/building/images/common/btn_list.gif"></A>
+		</td>
+	  </tr>
+	</table>
+	</TD>
+</TR>
+<TR>
+	<TD>&nbsp;</TD>
+</TR>
+</TABLE>
+<!-------------//컨텐츠    끝//------------------>
+				</td>
+              </tr>
+              <tr>
+                <td height="80"><!-----하단 페이지 기본 여백------->&nbsp;</td>
+              </tr>
+            </table></td>
+		  </tr>
+		</table></td>
+	  </tr>
+	  <tr>
+		<td>
+						<!-- 푸터 영역 변경 -->
+			<div class="footer">
+				<div class="left">
+					<div class="information">
+						<span>고객지원센터 : <i>1577-6618</i></span>
+						<a href="http://midasit.com" target="_blank">회사소개</a>
+						<a href="http://www.midasuser.com/membership/privacy_kr.asp" target="_blank" class="bold">개인정보취급방침</a>
+						<a href="http://www.midasuser.com/membership/agreement_kr.asp" target="_blank">이용약관</a>
+						<a href="http://www.midasuser.com/membership/s_email_kr.asp" target="_blank">이메일무단수집거부</a>
+						<a href="/building/CScenter/CScenter.asp">고객만족센터</a>
+					</div>
+					<address>
+						<div class="address">
+							<p class="location">경기도 성남시 분당구 판교로 228번길 17, B동 마이다스아이티 (우:13487)</p>
+							<p class="copyright">Copyright &copy; SINCE 1989 MIDAS Information Technology Co., Ltd. ALL RIGHTS RESERVED.</p>
+						</div>
+					</address>
+				</div>
+				<div class="right">
+					<select name="familySite" onchange="f_popLocation(this.value);" class="familySiteList"></select>
+				</div>
+			</div>
+			<!-- //푸터 영역 변경 -->
+			<script src="http://www.midasbuilding.com.cn/_js/kr_familySite.js"></script>
+<!--
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="640"><img src="http://kor.midasuser.com/images/common_copyright.gif" border="0" usemap="#bottomMapMap"></td>
+				<td align="right">
+					<select name="familySite" onchange="f_popLocation(this.value);" class="familySiteList"></select>
+				</td>
+				<map name="bottomMapMap" id="bottomMapMap">
+				<area shape="rect" coords="110,26,154,46" href="http://midasit.com" target="_blank" alt="회사소개" />
+				<area shape="rect" coords="159,25,240,47" href="http://www.midasuser.com/membership/privacy_kr.asp" target="_blank" alt="개인정보취급방침" />
+				<area shape="rect" coords="245,25,290,46" href="http://www.midasuser.com/membership/agreement_kr.asp" target="_blank" alt="이용약관" />
+				<area shape="rect" coords="295,25,395,47" href="http://www.midasuser.com/membership/s_email_kr.asp" target="_blank" alt="이메일주소무단수집거부" />
+				<area shape="rect" coords="400,25,470,46" href="/building/CScenter/CScenter.asp" alt="고객만족센터" />
+				</map>
+			</tr>
+			</table>
+
+			<script src="http://www.midasbuilding.com.cn/_js/kr_familySite.js"></script>
+
+-->
+		</td>
+	  </tr>			
+    </table></td>
+	<td width="80" valign="top">
+		<table>
+			<tr>
+				<td>
+					<div id="scroll" style='position:relative;left:0;top:80;z-index:0'>
+						<!----------- 슬라이드 배너 입력하는곳 --------------------->
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td style="padding:0 0 10px;">
+								<a href="http://kor.midasuser.com/building/news/news_view.asp?idx=656&bid=BRD_NoticeNews"><img src="/mail_2014/20140205_02/navigation.jpg" alt="클린캠페인" border="0" style="display:block;margin-bottom:5px;"></a>
+<a href="http://kor.midasuser.com/tss/" target="_blank"><img src="/images/tssflatform_banner.jpg" border="0" style="display:block;margin-bottom:5px;"></a>
+<a href="http://kor.midasuser.com/building/Downloads/evaluation.asp?" target="_self"><img src="http://kor.midasuser.com/mail_2015/0205_banner_Trial/banner_freeTrial.jpg" border="0" style="display:block;margin-bottom:5px;"><a href="http://kor.midasuser.com/geotech/products/products.asp?nCat=729&idx=33867" target="_blank"><img src="http://kor.midasuser.com/mail_2015/0414_geoxd/geoxd.gif" border="0" style="display:block;margin-bottom:5px;"></a></a>
+								</td>
+							</tr>
+							<!--Tr>
+								<td><img src="/building/images/common/QuickMenu_bg1.gif"></td>
+							</tr-->
+							<Tr>
+								<td align="center" background=""><table width="50" border="0" cellspacing="0" cellpadding="0">
+									  <!--tr>
+										<td><a href="/building/membership/contract.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Quick1','','/building/images/common/QuickMenu2_on_01.gif',1)"><img src="/building/images/common/QuickMenu2_01.gif" alt="My Space" name="Quick1" border="0" id="Quick1" /></a></td>
+									  </tr-->
+									  <tr>
+										<td><a href="/building/mods/mods.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Quick2','','/building/images/common/QuickMenu2_on_02.gif',1)"><img src="/building/images/common/QuickMenu2_02.gif" alt="MODS안내" name="Quick2" border="0" id="Quick2" /></a></td>
+									  </tr>
+									  <tr>
+										<td><a href="/building/Purchase/Purchase.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Quick3','','/building/images/common/QuickMenu2_on_03.gif',1)"><img src="/building/images/common/QuickMenu2_03.gif" alt="구매문의" name="Quick3" border="0" id="Quick3" /></a></td>
+									  </tr>
+									  <tr>
+										<td><a href="/building/training/education.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Quick8','','/building/images/common/QuickMenu2_on_08.gif',1)"><img src="/building/images/common/QuickMenu2_08.gif" alt="온라인학습" name="Quick8" border="0" id="Quick8" /></a></td>
+									  </tr>
+									  <tr>
+										<td><a href="/building/support/faq.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Quick6','','/building/images/common/QuickMenu2_on_04.gif',1)"><img src="/building/images/common/QuickMenu2_04.gif" alt="FAQ" name="Quick6" border="0" id="Quick6" /></a></td>
+									  </tr>
+									  <tr>
+										<td><a href="/building/column/column_imglist.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Quick4','','/building/images/common/QuickMenu2_on_05.gif',1)"><img src="/building/images/common/QuickMenu2_05.gif" alt="전문가칼럼" name="Quick4" border="0" id="Quick4" /></a></td>
+									  </tr>
+									  <tr>
+										<td><a href="/building/techpaper/txt_list.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Quick5','','/building/images/common/QuickMenu2_on_06.gif',1)"><img src="/building/images/common/QuickMenu2_06.gif" alt="MODS노트" name="Quick5" border="0" id="Quick5" /></a></td>
+									  </tr>
+									  <tr>
+										<td style="padding-top:5px"><a href="/building/education/img_list.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Quick9','','/building/images/common/QuickMenu2_on_09.gif',1)"><img src="/building/images/common/QuickMenu2_09.gif" alt="세미나 다시보기" name="Quick9" border="0" id="Quick9" /></a></td>
+									  </tr>
+									</table></td>
+							</tr>
+							<!--Tr>
+								<td><img src="/building/images/common/QuickMenu_bg3.gif"></td>
+							</tr-->
+						</table>
+						<!----------- 슬라이드 배너 입력하는곳 --------------------->
+					</div>
+				</td>
+			</tr>
+
+		</table>
+	</td>
+  </tr>
+</table>
+<!--//수식 스크립트//-->
+<script language="javascript" type="text/javascript">
+generateTeX("tex");
+generateTeX("texeq");
+</script>
+
+<!--네이버analytics-->
+<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script><script type="text/javascript">if(!wcs_add) var wcs_add = {};wcs_add["wa"] = "1120ac3d8847a24";wcs_do();</script>
+</body>
+</html>
+<script>
+	/// Site URL
+	var popLocation
+	var popLocationF
+	function f_popLocation(url){
+		if( "" != url ){
+			popLocationF = popLocation = window.open(url, "popLocaion");
+			popLocationF.focus();
+		}
+	}
+
+	// Sliding baner
+
+	var isDOM = (document.getElementById ? true : false); 
+	var isIE4 = ((document.all && !isDOM) ? true : false);
+	var isNS4 = (document.layers ? true : false);
+
+	function getRef(id) {
+		if (isDOM) return document.getElementById(id);
+		if (isIE4) return document.all[id];
+		if (isNS4) return document.layers[id];
+	}
+
+	var isNS = navigator.appName == "Netscape";
+
+	function moveRightEdge() {
+		var yMenuFrom, yMenuTo, yOffset, timeoutNextCheck;
+		if (isNS4) {
+			yMenuFrom   = scroll.top;
+			yMenuTo     = windows.pageYOffset + 180;   // 위쪽 위치
+		} else if (isDOM) {
+			yMenuFrom   = parseInt (scroll.style.top, 10);
+			yMenuTo     = (isNS ? window.pageYOffset : document.body.scrollTop) + 180; // 위쪽 위치
+		}
+
+		timeoutNextCheck = 500;
+
+		if (yMenuFrom != yMenuTo) {
+
+			yOffset = Math.ceil(Math.abs(yMenuTo - yMenuFrom) / 20); 
+			if (yMenuTo < yMenuFrom)
+				yOffset = -yOffset;
+			if (isNS4)
+				scroll.top += yOffset;
+			else if (isDOM)
+				scroll.style.top = parseInt (scroll.style.top, 10) + yOffset;
+				timeoutNextCheck = 10;
+		}
+
+		setTimeout ("moveRightEdge()", timeoutNextCheck);
+
+	}
+	 
+	if (isNS4) {
+		var scroll = document["scroll"];
+		scroll.top = top.pageYOffset - 100;
+		scroll.visibility = "visible";
+		moveRightEdge();
+	} else if (isDOM) {
+		var scroll = getRef('scroll');
+		scroll.style.top = (isNS ? window.pageYOffset : document.body.scrollTop) + 180;
+		scroll.style.visibility = "visible";
+		moveRightEdge();
+	}
+</script>
