@@ -4,3 +4,15 @@
   ex)
   * 주제: 파이썬 CFD 해석 라이브러리
   * 설명: STL모델링 데이터와, CFD 해석 조건을 입력 받아 결과 데이터를 출력하는 파이썬 라이브러리
+
+
+싸이트 변경사항 추적(특정 단어, ..)
+
+웹페이지 크롤링을 통한 데이터 분석
+
+독취사 크롤링(마이다스)
+
+
+http://kor.midasuser.com/building/support/faq_view.asp?idx=89423&nPage=1&strNo=194&sk=&bid=119&strCate=&strCate2=
+
+질문 텍스트, 답변 텍스트 저장
