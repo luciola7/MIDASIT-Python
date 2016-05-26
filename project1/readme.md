@@ -12,6 +12,7 @@ title:  "파이썬 크롤러"
     http://kor.midasuser.com/building/support/faq_view.asp?idx=89423&nPage=1&strNo=194&sk=&bid=119&strCate=&strCate2=
 
 ### 2차  
+  * http://kor.midasuser.com/building/support/faq.asp?idx=&sk=&bid=119&strCate=&strCate2=
   * 웹페이지의 저장 내용을 분석해 변경사항을 추출한다.
   * 주기적으로 웹페이지의 변경사항을 저장한다.
   
