@@ -38,9 +38,15 @@ def match_ends(words):
 # before combining them.
 def front_x(words):
   # +++your code here+++
+  # start_with_x = [word for word in words if word.startswith('x')]
+  # start_with_x.sort()
+  # others = list(set(words) - set(start_with_x))
+  # others.sort()
+
   start_with_x = [word for word in words if word.startswith('x')]
+  others = [word for word in words if not word.startswith('x')]
+
   start_with_x.sort()
-  others = list(set(words) - set(start_with_x))
   others.sort()
 
   return start_with_x + others
