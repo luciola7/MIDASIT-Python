@@ -1,6 +1,7 @@
 # coding: utf-8
 from requests import Session
 import bs4
+import threading
 
 def generate_session(userID, userPWD, loginURL):
     payload = {
@@ -26,13 +27,23 @@ def grep_result(queryResult, className, prevResult):
     for htmlElem in soup.find_all(class_=className):
         if htmlElem.text:
             if htmlElem.text not in prevResult:
-                prevResult[htmlElem.text] = 'added'        
+                print(htmlElem.text + ' is new Question!')
+                prevResult[htmlElem.text] = 'added'  
+                      
     return prevResult
+
+def run_checker(loginSession, queryURL, findClass, existReult):
+    threading.Timer(20.0, run_checker, [loginSession, queryURL, findClass, existReult]).start()
+    print('Query Start')
+    textResult = query_page(loginSession, queryURL)
+    print(grep_result(textResult, findClass, existReult))
+    print('Query End')
+    
 
 def main():
     """main function"""
-    userID = 'luciola7'
-    pserPWD = 'tmzkdl00'
+    userID = '--------'
+    pserPWD = '--------'
     loginURL = 'https://kor.midasuser.com/building/membership/login_ok.asp'
     queryURL = 'http://kor.midasuser.com/building/support/qna.asp'
     findClass = 'board_no_green'
@@ -41,8 +52,7 @@ def main():
     loginSession = generate_session(userID, pserPWD, loginURL)
 
     if check_session(loginSession, userID):
-        textResult = query_page(loginSession, queryURL)
-        print(grep_result(textResult, findClass, existReult))
+        run_checker(loginSession, queryURL, findClass, existReult)
     else :
         print('login fail.')
     
