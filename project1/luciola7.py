@@ -47,7 +47,10 @@ def main():
     loginURL = 'https://kor.midasuser.com/building/membership/login_ok.asp'
     queryURL = 'http://kor.midasuser.com/building/support/qna.asp'
     findClass = 'board_no_green'
-    existReult = {'262378':'inital', '262374':'inital', '262329': 'inital'}
+    existReult = {'263138': 'inital', '262329': 'inital', '262961': 'inital', '262985': 'inital', '263017': 'inital',
+     '262913': 'inital', '262975': 'inital', '263014': 'inital', '262834': 'inital', '262909': 'inital',
+     '263063': 'inital', '262872': 'inital', '263044': 'inital', '263158': 'inital', '262884': 'inital',
+     '262378': 'inital', '262374': 'inital'}
 
     loginSession = generate_session(userID, pserPWD, loginURL)
 
