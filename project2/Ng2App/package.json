@@ -1,9 +1,9 @@
 {
-  "name": "angular2-seed",
+  "name": "M-Finder",
   "version": "0.0.0",
   "description": "Modular seed project for Angular 2 apps with fast, statically typed build",
   "repository": {
-    "url": "https://github.com/mgechev/angular2-seed"
+    "url": "https://github.com/luciola7/MIDASIT-Python"
   },
   "scripts": {
     "build.dev": "gulp build.dev --color",
