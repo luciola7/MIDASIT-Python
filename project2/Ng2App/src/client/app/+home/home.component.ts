@@ -2,6 +2,15 @@ import { Component } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 import { NameListService } from '../shared/index';
+import { GeocodeService } from '../shared/index';
+
+/**
+ * for GeoCode
+ */
+export class GeoCode {
+  x: string;
+  y: string;
+}
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -23,7 +32,8 @@ export class HomeComponent {
    *
    * @param {NameListService} nameListService - The injected NameListService.
    */
-  constructor(public nameListService: NameListService) {}
+  constructor(public nameListService: NameListService,
+               public geocodeService: GeocodeService) {}
 
   /**
    * Calls the add method of the NameListService with the current newName value of the form.

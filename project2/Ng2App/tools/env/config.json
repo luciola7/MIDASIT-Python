@@ -1,11 +1,11 @@
 {
   "dev": {
-    "API": "https://demo.com"
+    "API": "https://openapi.naver.com"
   },
   "prod": {
-    "API": "https://prod.com"
+    "API": "https://openapi.naver.com"
   },
   "staging": {
-    "API": "https://staging.com"
+    "API": "https://openapi.naver.com"
   }
 }
