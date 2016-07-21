@@ -1,0 +1,11 @@
+{
+  "dev": {
+    "API": "https://openapi.naver.com"
+  },
+  "prod": {
+    "API": "https://openapi.naver.com"
+  },
+  "staging": {
+    "API": "https://openapi.naver.com"
+  }
+}
