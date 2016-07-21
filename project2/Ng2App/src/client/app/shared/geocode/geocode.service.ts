@@ -17,64 +17,49 @@ export class GeocodeService {
    */
   names: string[] = [];
 
+  reqAdr: string = "판교";
+
   /**
    * Contains the currently pending request.
    * @type {Observable<string[]>}
    */
-  private request: Observable<string[]>;
+  //private request: Observable<string[]>;
 
   /**
    * Creates a new GeocodeService with the injected Http.
    * @param {Http} http - The injected Http.
    * @constructor
    */
-  constructor(private jsonp: Http) {}
+  constructor(private http: Http) {}
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource. If there was a previous successful request
    * (the local names array is defined and has elements), the cached version is returned
    * @return {string[]} The Observable for the HTTP request.
    */
-  get(): Observable<string[]> {
+  get(){
     //if (!this.request) {
-    let headerV = new Headers();
-      //'encoding': 'utf-8',
-      //'coord': 'latlng',
-      //'output': 'json',
-      //'query' : 'Midas',
-      //'Content-Type': 'application/json',
-      //'Access-Control-Allow-Origin' : '*',
-      //'Host' : 'openapi.naver.com',
-      //'Accept': '*/*',
-      //'X-Naver-Client-Id': '---',
-      //'X-Naver-Client-Secret': '---'
-    //});
-    headerV.append('Content-Type', 'application/javascript');
-    //headerV.append('Access-Control-Allow-Origin', '*');
-    headerV.append('X-Naver-Client-Id', '---');
-    headerV.append('X-Naver-Client-Secret', '---');
-    let params = new URLSearchParams();
-    //params.set('Content-Type', 'application/javascript');
-    params.set('X-Naver-Client-Id', '---');
-    params.set('X-Naver-Client-Secret', '---');
-    params.set('encoding', 'utf-8'); // the user's search value
-    params.set('coord', 'latlng');
-    params.set('query', 'MIDAS');
-    params.set('output', 'json');
-    params.set('callback', 'JSONP_CALLBACK');
-    //this.request = this.http.get('https://openapi.naver.com/v1/map/geocode', { headers: headers})
-          //.map(request => <string[]> request.json()[1]);
-         // this.jsonp.get('https://openapi.naver.com/v1/map/geocode', { headers: headerV, search: params })
-        //  .map(res => console.log(res.json()));
-    this.request = this.jsonp.get('https://openapi.naver.com/v1/map/geocode', { headers: headerV, search: params })
-      .map(request => <string[]> request.json()[1]);
-     // .map((response: Response) => response.json())
-     // .map((data: string[]) => {
-     //     this.request = null;
-     //     return this.names = data;
-     // }).publishReplay(1).refCount();
+      console.log('get');
+      let headerV = new Headers();
+      headerV.append('Content-Type', 'application/json');
+      headerV.append('Target-URL', 'https://openapi.naver.com/v1/map/geocode');
+      headerV.append('X-Naver-Client-Id', 'YXS0h7yKOMXv0hjO59E2');
+      headerV.append('X-Naver-Client-Secret', 'DHqT_iixro');
+      let params = new URLSearchParams();
+      params.set('encoding', 'utf-8'); // the user's search value
+      params.set('coord', 'latlng');
+      params.set('query', this.reqAdr);
+      params.set('output', 'json');
+      console.log(this.reqAdr);
+      //this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
+      this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
+        .map((response: Response) => response.json())
+        .map((data: string[]) => {
+          //this.request = null;
+          console.log(data.result.items[0]);
+          //return this.names = data.result.items;
+        }).publishReplay(1).refCount();
     //}
-    return this.request;
   }
 
   /**
@@ -82,7 +67,9 @@ export class GeocodeService {
    * @param {string} value - The name to add.
    */
   add(value: string): void {
-    this.names.push(value);
+    this.reqAdr = value;
+    this.get();
+    //this.names.push(value);
   }
 }
 

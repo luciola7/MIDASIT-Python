@@ -40,7 +40,9 @@ export class HomeComponent {
    * @return {boolean} false to prevent default form submit behavior to refresh the page.
    */
   addName(): boolean {
-    this.nameListService.add(this.newName);
+    //this.nameListService.add(this.newName);
+    console.log("addName");
+    this.geocodeService.add(this.newName);
     this.newName = '';
     return false;
   }
