@@ -102,3 +102,7 @@ project2/Ng2App/tmp
 
 project2/Ng2App/gulpfile.js
 project2/Ng2App/gulpfile.js.map
+
+
+# For Project NaverApiProxy
+project2/ApiProxy/node_modules/
