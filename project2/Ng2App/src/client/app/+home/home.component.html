@@ -1,4 +1,12 @@
 <p>
+  위치 검색
+</p>
+<form (submit)="searchQuery()">
+  <input [(ngModel)]="inputQuery" name="inputQuery" placeholder="Address, Building, Street">
+  <button type="submit">Search</button>
+</form>
+
+<p>
   Address -> Geocode
 </p>
 
@@ -8,7 +16,7 @@
 </form>
 
 
-<ul *ngIf="geocodeService.names">
+<ul *ngIf="geocodeService.names.result">
   <li *ngFor="let name of nameListService.get() | async">{{name}}</li>
-  <li *ngFor="let result of geocodeService.names">{{result.address}}</li>
+  <li *ngFor="let result of geocodeService.names.result.items">{{result.address}}, ({{result.point.x}}, {{result.point.y}})</li>
 </ul>

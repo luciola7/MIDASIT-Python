@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publishReplay';
+import 'rxjs/add/operator/toPromise';
 
 /**
  * This class provides the Geocode service with methods to read names and add names.
@@ -15,7 +16,7 @@ export class GeocodeService {
    * The array of initial names provided by the service.
    * @type {Array}
    */
-  names: string[] = [];
+  names = {};
 
   reqAdr: string = "판교";
 
@@ -41,6 +42,7 @@ export class GeocodeService {
     //if (!this.request) {
       console.log('get');
       let headerV = new Headers();
+      headerV.append('api-Type', 'NaverApi')
       headerV.append('Content-Type', 'application/json');
       headerV.append('Target-URL', 'https://openapi.naver.com/v1/map/geocode');
       headerV.append('X-Naver-Client-Id', 'YXS0h7yKOMXv0hjO59E2');
@@ -52,13 +54,19 @@ export class GeocodeService {
       params.set('output', 'json');
       console.log(this.reqAdr);
       //this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
-      this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
-        .map((response: Response) => response.json())
-        .map((data: string[]) => {
+      return this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
+        .toPromise()
+        .then((response: Response) => {
+          this.names = response.json()
+        }
+          )
+        .catch(this.handleError);
+        //.map((response: Response) => response.json())
+        //.map((data: string[]) => {
           //this.request = null;
-          console.log(data.result.items[0]);
+          //console.log(data.result.items[0]);
           //return this.names = data.result.items;
-        }).publishReplay(1).refCount();
+        //}).publishReplay(1).refCount();
     //}
   }
 
@@ -70,6 +78,11 @@ export class GeocodeService {
     this.reqAdr = value;
     this.get();
     //this.names.push(value);
+  }
+
+  private handleError(error: any) {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
   }
 }
 
