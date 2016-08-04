@@ -49,7 +49,7 @@ export class GeocodeService {
       headerV.append('X-Naver-Client-Secret', 'DHqT_iixro');
       let params = new URLSearchParams();
       params.set('encoding', 'utf-8'); // the user's search value
-      params.set('coord', 'latlng');
+      params.set('coord', 'tm128');
       params.set('query', this.reqAdr);
       params.set('output', 'json');
       console.log(this.reqAdr);

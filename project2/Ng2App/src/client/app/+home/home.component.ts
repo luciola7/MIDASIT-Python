@@ -29,6 +29,9 @@ export class HomeComponent {
 
   inputQuery: string = '마이다스아이티';
 
+  sourceItems: any[] = [];
+  targetItems: any[] = [];
+
   /**
    * Creates an instance of the HomeComponent with the injected
    * NameListService.
@@ -56,6 +59,32 @@ export class HomeComponent {
     this.searchService.searchQuery(this.inputQuery);
     this.inputQuery = '';
     console.log('searchQuery End');
+  }
+
+  AddSourceItem(item: any) : boolean {
+    this.sourceItems.push(item);
+    return false;
+  }
+
+  AddTargetItem(item: any) : boolean {
+    this.targetItems.push(item);
+    return  false;
+  }
+
+  AddSourceItemAddress(item: any) : boolean {
+    var itemBuf = { title :item.address,
+      address : item.address,
+      mapx : item.point.x, mapy : item.point.y }
+    this.sourceItems.push(itemBuf);
+    return false;
+  }
+
+  AddTargetItemAddress(item: any) : boolean {
+    var itemBuf = { title :item.address,
+      address : item.address,
+      mapx : item.point.x, mapy : item.point.y }
+    this.targetItems.push(itemBuf);
+    return  false;
   }
 
 }

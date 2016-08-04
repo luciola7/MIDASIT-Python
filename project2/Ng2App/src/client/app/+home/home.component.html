@@ -6,9 +6,20 @@
   <button type="submit">Search</button>
 </form>
 
-<ul *ngIf="searchService.queryResult.rss && searchService.queryResult.rss.channel[0]">
-  <li *ngFor="let result of searchService.queryResult.rss.channel[0].item">{{result.title}}</li>
-</ul>
+<div *ngIf="searchService.queryResult.rss && searchService.queryResult.rss.channel">
+  <p>Search <b>{{inputQuery}}</b> Results <p>
+  <ul *ngFor="let channel of searchService.queryResult.rss.channel">
+    <li *ngFor="let result of channel.item">
+      <hr>
+      <span [innerHtml] = "result.title"></span><br />
+      <span> 주소 : {{result.address}}</span><br />
+      <span> 좌표 : (x : {{result.mapx}}, y: {{result.mapy}}) </span><br />
+      <button (click)="AddSourceItem(result)">Add Source</button>
+      <button (click)="AddTargetItem(result)">Add Target</button>
+    </li>
+    <hr>
+  </ul>
+</div>
 
 <p>
   Address -> Geocode
@@ -20,7 +31,41 @@
 </form>
 
 
-<ul *ngIf="geocodeService.names.result">
-  <li *ngFor="let name of nameListService.get() | async">{{name}}</li>
-  <li *ngFor="let result of geocodeService.names.result.items">{{result.address}}, ({{result.point.x}}, {{result.point.y}})</li>
+<div *ngIf="geocodeService.names.result">
+  <p>Address <b>{{name}}</b> Results</p>
+  <ul> 
+    <li *ngFor="let item of geocodeService.names.result.items">
+      <hr>
+      <span [innerHtml] = "item.address"></span><br />
+      <span> 주소 : {{item.address}}</span><br />
+      <span> 좌표 : (x : {{item.point.x}}, y: {{item.point.y}}) </span><br />
+      <button (click)="AddSourceItemAddress(item)">Add Source</button>
+      <button (click)="AddTargetItemAddress(item)">Add Target</button>
+    </li>
+  </ul>
+</div>
+
+
+<ul *ngIf="sourceItems.length > 0">
+  <p> Source Items </p>
+  <li *ngFor="let item of sourceItems">
+    <hr>
+    <span [innerHtml] = "item.title"></span><br />
+    <span> 주소 : {{item.address}}</span><br />
+    <span> x : {{item.mapx}}, y: {{item.mapy}} </span>
+  </li>
+  <hr>
 </ul>
+
+<ul *ngIf="targetItems.length > 0">
+  <p> Target Items </p>
+  <li *ngFor="let item of targetItems">
+    <hr>
+    <span [innerHtml] = "item.title"></span><br />
+    <span> 주소 : {{item.address}}</span><br />
+    <span> x : {{item.mapx}}, y: {{item.mapy}} </span>
+  </li>
+  <hr>
+</ul>
+
+<button *ngIf="sourceItems.length > 0 && targetItems.length > 0" >Analysis</button>
