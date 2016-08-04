@@ -41,7 +41,7 @@ export class SearchService {
     //if (!this.request) {
       console.log('get');
       let headerV = new Headers();
-      headerV.append('api-Type', 'NaverApi')
+      headerV.append('api-Type', 'NaverApi-Search-Local')
       headerV.append('Content-Type', 'application/json');
       headerV.append('Target-URL', 'https://openapi.naver.com/v1/search/local.xml');
       headerV.append('X-Naver-Client-Id', 'YXS0h7yKOMXv0hjO59E2');
@@ -54,7 +54,7 @@ export class SearchService {
       return this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
         .toPromise()
         .then((response: Response) => {
-          this.queryResult = this.xmlToJson(response.text());
+          this.queryResult = response.json();
         }
           )
         .catch(this.handleError);
@@ -81,43 +81,5 @@ export class SearchService {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
-
-  xmlToJson(xml : Node) {
-	
-    // Create the return object
-    var obj : any = {};
-
-    if (xml.nodeType == 1) { // element
-      // do attributes
-      if (xml.attributes.length > 0) {
-        obj["@attributes"] = {};
-        for (var j = 0; j < xml.attributes.length; j++) {
-          var attribute = xml.attributes.item(j);
-          obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
-        }
-      }
-    } else if (xml.nodeType == 3) { // text
-      obj = xml.nodeValue;
-    }
-
-    // do children
-    if (xml.hasChildNodes()) {
-      for(var i = 0; i < xml.childNodes.length; i++) {
-        var item = xml.childNodes.item(i);
-        var nodeName = item.nodeName;
-        if (typeof(obj[nodeName]) == "undefined") {
-          obj[nodeName] = this.xmlToJson(item);
-        } else {
-          if (typeof(obj[nodeName].push) == "undefined") {
-            var old = obj[nodeName];
-            obj[nodeName] = [];
-            obj[nodeName].push(old);
-          }
-          obj[nodeName].push(this.xmlToJson(item));
-        }
-      }
-    }
-    return obj;
-  };
 }
 

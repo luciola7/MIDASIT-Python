@@ -42,7 +42,7 @@ export class GeocodeService {
     //if (!this.request) {
       console.log('get');
       let headerV = new Headers();
-      headerV.append('api-Type', 'NaverApi')
+      headerV.append('api-Type', 'NaverApi-Map-Geocode')
       headerV.append('Content-Type', 'application/json');
       headerV.append('Target-URL', 'https://openapi.naver.com/v1/map/geocode');
       headerV.append('X-Naver-Client-Id', 'YXS0h7yKOMXv0hjO59E2');
