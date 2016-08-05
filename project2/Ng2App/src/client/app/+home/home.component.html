@@ -68,4 +68,16 @@
   <hr>
 </ul>
 
-<button *ngIf="sourceItems.length > 0 && targetItems.length > 0" >Analysis</button>
+
+
+<button *ngIf="sourceItems.length > 0 && targetItems.length > 0" (click)="ExcuteAnalyze()">Analysis</button>
+
+<ul *ngIf="analyzeService.routeResult.length > 0">
+  <p> Route Results </p>
+  <li *ngFor="let result of analyzeService.routeResult">
+    <hr>
+    <span [innerHtml] = "result.fromTitle"></span> => <span [innerHtml] = "result.toTitle"></span><br />
+    <span>{{result.time}}</span>
+  </li>
+  <hr>
+</ul>

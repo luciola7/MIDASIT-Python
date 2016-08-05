@@ -35,18 +35,15 @@ app.all('*', function (req, res, next) {
             return;
         }
 
-        if( apiType == 'TmapApi')
+        if( apiType == 'SkpApi-Tmap-Routes')
         {
             apiQuery = req.url.replace("/", "");
             //apiQuery.replace("/", "");
-            console.log(apiQuery);
-            console.log(targetURL)
             request({ url: targetURL + apiQuery,
             method: req.method, 
             headers: {
                 'Content-Type' : req.header('Content-Type'),
-                'X-Naver-Client-Id' : req.header('X-Naver-Client-Id'),
-                'X-Naver-Client-Secret' : req.header('X-Naver-Client-Secret'),
+                'appkey' : req.header('appkey'),
                 rejectUnauthorized:false 
                 }},
                 function (error, response, body) {
@@ -60,8 +57,6 @@ app.all('*', function (req, res, next) {
         {
             apiQuery = req.url.replace("/", "");
             //apiQuery.replace("/", "");
-            console.log(apiQuery);
-            console.log(targetURL)
             request({ url: targetURL + apiQuery,
             method: req.method, 
             headers: {
@@ -93,8 +88,6 @@ app.all('*', function (req, res, next) {
         {
             apiQuery = req.url.replace("/", "");
             //apiQuery.replace("/", "");
-            console.log(apiQuery);
-            console.log(targetURL)
             request({ url: targetURL + apiQuery,
             method: req.method, 
             headers: {

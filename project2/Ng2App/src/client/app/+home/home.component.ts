@@ -4,6 +4,7 @@ import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { NameListService } from '../shared/index';
 import { SearchService } from '../shared/index';
 import { GeocodeService } from '../shared/index';
+import { AnalyzeService } from '../shared/index';
 
 /**
  * for GeoCode
@@ -40,7 +41,8 @@ export class HomeComponent {
    */
   constructor(public nameListService: NameListService,
               public searchService: SearchService,
-               public geocodeService: GeocodeService) {}
+              public geocodeService: GeocodeService,
+              public analyzeService: AnalyzeService) {}
 
   /**
    * Calls the add method of the NameListService with the current newName value of the form.
@@ -85,6 +87,11 @@ export class HomeComponent {
       mapx : item.point.x, mapy : item.point.y }
     this.targetItems.push(itemBuf);
     return  false;
+  }
+
+  ExcuteAnalyze() : boolean {
+    this.analyzeService.CalcScore(this.sourceItems, this.targetItems);
+    return false;
   }
 
 }

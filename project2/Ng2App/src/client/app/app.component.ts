@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { HTTP_PROVIDERS, JSONP_PROVIDERS } from '@angular/http';
 
-import { Config, NameListService, GeocodeService, SearchService, NavbarComponent, ToolbarComponent } from './shared/index';
+import { Config, NameListService, GeocodeService, SearchService, AnalyzeService, NavbarComponent, ToolbarComponent } from './shared/index';
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
@@ -11,7 +11,7 @@ import { Config, NameListService, GeocodeService, SearchService, NavbarComponent
 @Component({
   moduleId: module.id,
   selector: 'sd-app',
-  viewProviders: [NameListService, GeocodeService, SearchService, HTTP_PROVIDERS, JSONP_PROVIDERS],
+  viewProviders: [NameListService, GeocodeService, SearchService, AnalyzeService, HTTP_PROVIDERS, JSONP_PROVIDERS],
   templateUrl: 'app.component.html',
   directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
 })
