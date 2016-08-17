@@ -54,7 +54,7 @@ export class GeocodeService {
       params.set('output', 'json');
       console.log(this.reqAdr);
       //this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
-      return this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
+      return this.http.get('http://192.168.7.75:3000', { headers: headerV, search: params })
         .toPromise()
         .then((response: Response) => {
           this.names = response.json()

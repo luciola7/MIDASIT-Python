@@ -51,7 +51,7 @@ export class SearchService {
       
       console.log(this.reqQuery);
       //this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
-      return this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
+      return this.http.get('http://192.168.7.75:3000', { headers: headerV, search: params })
         .toPromise()
         .then((response: Response) => {
           this.queryResult = response.json();

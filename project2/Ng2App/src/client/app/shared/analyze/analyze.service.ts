@@ -60,7 +60,7 @@ export class AnalyzeService {
     params.set('startX', startX);
     params.set('startY', startY);
     params.set('reqCoordType', 'KATECH');
-    return this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
+    return this.http.get('http://192.168.7.75:3000', { headers: headerV, search: params })
       .toPromise()
       .then((response: Response) => {
         var result = {
