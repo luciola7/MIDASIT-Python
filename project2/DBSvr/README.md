@@ -22,6 +22,7 @@
 
 # Python MongoDB Driver 설치(pymongo)
 1. pymongo 
+ - 참고 URL : https://docs.mongodb.com/getting-started/python/
  - 참고 URL : http://ngee.tistory.com/335
  - > pip install pymongo 
 
