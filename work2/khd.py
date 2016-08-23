@@ -43,7 +43,7 @@ def run_checker(loginSession, queryURL, findClass, existReult):
 def main():
     """main function"""
     userID = 'hdkim'
-    pserPWD = 'mitgusejr1!'
+    pserPWD = ''
     loginURL = 'https://kor.midasuser.com/building/membership/login_ok.asp'
     queryURL = 'http://kor.midasuser.com/building/support/qna.asp'
     findClass = 'board_no_green'
