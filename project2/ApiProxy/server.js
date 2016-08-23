@@ -3,6 +3,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     app = express();
 
+var parseString = require('xml2js').parseString;
+
 var myLimit = typeof(process.argv[2]) != 'undefined' ? process.argv[2] : '100kb';
 console.log('Using limit: ', myLimit);
 
@@ -19,29 +21,99 @@ app.all('*', function (req, res, next) {
         // CORS Preflight
         res.send();
     } else {
+        var apiType = req.header("api-Type");
+        if (!apiType)
+        {
+            console.error('error :' + 'Not proper request.');
+            res.send(500, { error: 'Not proper request.' });
+        }
+
         var targetURL = req.header('Target-URL');
         if (!targetURL) {
+            console.error('error :' + 'There is no Target-Endpoint header in the request.');
             res.send(500, { error: 'There is no Target-Endpoint header in the request' });
             return;
         }
-        apiQuery = req.url.replace("/", "");
-        //apiQuery.replace("/", "");
-        console.log(apiQuery);
-        console.log(targetURL)
-        request({ url: targetURL + apiQuery,
-         method: req.method, 
-         headers: {
-            'Content-Type' : req.header('Content-Type'),
-            'X-Naver-Client-Id' : req.header('X-Naver-Client-Id'),
-            'X-Naver-Client-Secret' : req.header('X-Naver-Client-Secret'),
-             rejectUnauthorized:false 
-            }},
-            function (error, response, body) {
-                if (error) {
-                    console.error('error: ' + error + response + body);
-                }
-                console.log(body);
-            }).pipe(res);
+
+        if( apiType == 'TmapApi')
+        {
+            apiQuery = req.url.replace("/", "");
+            //apiQuery.replace("/", "");
+            console.log(apiQuery);
+            console.log(targetURL)
+            request({ url: targetURL + apiQuery,
+            method: req.method, 
+            headers: {
+                'Content-Type' : req.header('Content-Type'),
+                'X-Naver-Client-Id' : req.header('X-Naver-Client-Id'),
+                'X-Naver-Client-Secret' : req.header('X-Naver-Client-Secret'),
+                rejectUnauthorized:false 
+                }},
+                function (error, response, body) {
+                    if (error) {
+                        console.error('error: ' + error + response + body);
+                    }
+                    console.log(body);
+                }).pipe(res);
+        }
+        else if( apiType == 'NaverApi-Search-Local')
+        {
+            apiQuery = req.url.replace("/", "");
+            //apiQuery.replace("/", "");
+            console.log(apiQuery);
+            console.log(targetURL)
+            request({ url: targetURL + apiQuery,
+            method: req.method, 
+            headers: {
+                'Content-Type' : req.header('Content-Type'),
+                'X-Naver-Client-Id' : req.header('X-Naver-Client-Id'),
+                'X-Naver-Client-Secret' : req.header('X-Naver-Client-Secret'),
+                rejectUnauthorized:false 
+                }},
+                function (error, response, body) {
+                    if (error) {
+                        console.error('error: ' + error + response + body);
+                    }
+                    console.log(body);
+                    res._body = parseString(body, function (err, result) {
+                        if(err)
+                        {
+                            console.log("error : " + 'XmlParse Error');
+                            res.send(500, { error: 'XmlParse Error' });
+                        }
+                        else
+                        {
+                            console.log(JSON.stringify(result));
+                            res.json(result);
+                        }
+                    })
+                });
+        }
+        else if( apiType == 'NaverApi-Map-Geocode')
+        {
+            apiQuery = req.url.replace("/", "");
+            //apiQuery.replace("/", "");
+            console.log(apiQuery);
+            console.log(targetURL)
+            request({ url: targetURL + apiQuery,
+            method: req.method, 
+            headers: {
+                'Content-Type' : req.header('Content-Type'),
+                'X-Naver-Client-Id' : req.header('X-Naver-Client-Id'),
+                'X-Naver-Client-Secret' : req.header('X-Naver-Client-Secret'),
+                rejectUnauthorized:false 
+                }},
+                function (error, response, body) {
+                    if (error) {
+                        console.error('error: ' + error + response + body);
+                    }
+                    console.log(body);
+                }).pipe(res);
+        }
+        else
+        {
+            console.error('error: ' + 'Unknown Api type');
+        }
     }
 });
 

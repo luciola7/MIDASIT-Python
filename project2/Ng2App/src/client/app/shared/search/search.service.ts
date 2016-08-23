@@ -10,15 +10,14 @@ import 'rxjs/add/operator/toPromise';
  * This class provides the Geocode service with methods to read names and add names.
  */
 @Injectable()
-export class GeocodeService {
+export class SearchService {
 
   /**
    * The array of initial names provided by the service.
    * @type {Array}
    */
-  names = {};
-
-  reqAdr: string = "판교";
+  reqQuery: string = "마이다스아이티";
+  queryResult = {}
 
   /**
    * Contains the currently pending request.
@@ -27,7 +26,7 @@ export class GeocodeService {
   //private request: Observable<string[]>;
 
   /**
-   * Creates a new GeocodeService with the injected Http.
+   * Creates a new SearchService with the injected Http.
    * @param {Http} http - The injected Http.
    * @constructor
    */
@@ -42,22 +41,20 @@ export class GeocodeService {
     //if (!this.request) {
       console.log('get');
       let headerV = new Headers();
-      headerV.append('api-Type', 'NaverApi-Map-Geocode')
+      headerV.append('api-Type', 'NaverApi-Search-Local')
       headerV.append('Content-Type', 'application/json');
-      headerV.append('Target-URL', 'https://openapi.naver.com/v1/map/geocode');
+      headerV.append('Target-URL', 'https://openapi.naver.com/v1/search/local.xml');
       headerV.append('X-Naver-Client-Id', 'YXS0h7yKOMXv0hjO59E2');
       headerV.append('X-Naver-Client-Secret', 'DHqT_iixro');
       let params = new URLSearchParams();
-      params.set('encoding', 'utf-8'); // the user's search value
-      params.set('coord', 'tm128');
-      params.set('query', this.reqAdr);
-      params.set('output', 'json');
-      console.log(this.reqAdr);
+      params.set('query', this.reqQuery);
+      
+      console.log(this.reqQuery);
       //this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
       return this.http.get('http://127.0.0.1:3000', { headers: headerV, search: params })
         .toPromise()
         .then((response: Response) => {
-          this.names = response.json()
+          this.queryResult = response.json();
         }
           )
         .catch(this.handleError);
@@ -74,8 +71,8 @@ export class GeocodeService {
    * Adds the given name to the array of names.
    * @param {string} value - The name to add.
    */
-  add(value: string): void {
-    this.reqAdr = value;
+  searchQuery(value: string): void {
+    this.reqQuery = value;
     this.get();
     //this.names.push(value);
   }
