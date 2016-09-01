@@ -1,0 +1,22 @@
+import requests
+from bs4 import BeautifulSoup
+
+   
+if __name__ == "__main__":
+    #Chose my own article
+    base_url = "http://kor.midasuser.com/building/support/faq_view.asp?idx=89423&nPage=1&strNo=194&sk=&bid=119&strCate=&strCate2="
+
+    r = requests.get(base_url)
+    soup = BeautifulSoup(r.text, "lxml")   
+    data1 = soup.find_all('td', {"class:","greenTitle"})
+    text = ''
+    for item in data1:
+        print(item.text) 
+        text += item.getText()
+    data2 = soup.find_all('td',{"class:","boardText"})
+    for item2 in data2:
+        print(item2.text)
+        text += item2.getText()    
+    #with open("D:/Study_Python/Python/.vscode/Project1.txt", encoding='utf-8', mode='w') as fout:
+    #fout.write(text)
+      
