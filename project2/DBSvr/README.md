@@ -1,3 +1,7 @@
+# 현재 개발용으로 운영중인 서버 주소
+1. MongoDB Server : 192.168.7.75:27017
+2. MongoDB Express : 192.168.7.75:8081
+
 # MongoDB Server
 1. MongoDB Server 설치
  - https://www.mongodb.com 에서 프로그램 다운로드

@@ -12,7 +12,7 @@
                 "WaitOnNormalExit",
                 "RedirectOutput"
             ],
-            "pythonPath":"C:\\Users\\pch0202\\AppData\\Local\\Programs\\Python\\Python35-32\\python.exe"
+            "pythonPath": "${config.python.pythonPath}"
         },
         {
             "name": "Python Console App",
