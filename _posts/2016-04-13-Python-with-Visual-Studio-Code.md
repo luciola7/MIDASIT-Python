@@ -27,6 +27,20 @@ title:  "Python with Visual Studio Code"
   * py 확장자로 저장
      ![Python File]({{ site.baseurl }}/assets/images/python-with-visual-studio-code/python-file.png)
 
+## settings.json (실행환경별 설정파일) 작성
+  1. 파일 > 기본 설정 > 사용자 설정 을 선택하면 생성(처음 생성시) 또는 편집
+  *
+```javascript
+// 설정을 이 파일에 넣어서 기본 설정을 덮어씁니다.
+{
+    // 파이썬 실행파일 경로입니다.
+    "python.pythonPath": "C:/Program Files (x86)/Python35-32/python.exe",
+
+    // 파이썬 실행 명령어 입니다.
+    "python.pythonCommand": "python"
+}
+```
+
 ## python 스크립트 실행
   1. Command Palette 실행(F1, View > Command Palette)
   1. Tasks 입력 후 : (Task Runner 구성)Configure Task Runner 선택
@@ -37,18 +51,23 @@ title:  "Python with Visual Studio Code"
 ```json
 {
   "version": "0.1.0",
-  "command": "python3",
+  "command": "${config.python.pythonCommand}",
   "isShellCommand": true,
   "showOutput": "always",
-  "args": ["${file}"]
+  "echoCommand": true,
+  "tasks": [
+      {"taskName": "run python",
+       "args": ["${file}"],
+       "suppressTaskName": true}
+  ]
 }
 ```
 ```javascript
- // "command": "python3", OS X , python3 환경변수 설정된 경우 
- // "command": "python", windows 환경변수 설정된 경우
- // "command": "실행파일", (PATH 등록이 되어 있지 않은 경우)
+ // "command": "${config.python.pythonCommand}" 에서
+ // ${config.python.pythonCommand} 은 settings.json 파일에서 설정한 값을 불러옴 
 ```
-  1. 실행 하려고 하는 파이썬 스크립트 파일에서 (Ctrl + Shift + B)를 누르면 해당 스크립트가 실행됩니다.
+  1. Command Pallete (Ctrl + P) 입력후 task "taskName" 으로 실행
+  1. isBuildCommand: true 가 설정된 경우에는 (Ctrl + Shift + B)를 누르면 해당 스크립트가 실행됩니다.
   1. 참조
   * VS Code Tasks: [https://code.visualstudio.com/docs/editor/tasks](https://code.visualstudio.com/docs/editor/tasks)
   * task.json Schema: [https://code.visualstudio.com/docs/editor/tasks_appendix](https://code.visualstudio.com/docs/editor/tasks_appendix)
@@ -84,8 +103,12 @@ title:  "Python with Visual Studio Code"
   * 
 ```json
 { 
-  "pythonPath":"C:/Users/dsshin/AppData/Local/Programs/Python/Python35/pythonw.exe"
+  "pythonPath": "${config.python.pythonPath}"
 }
+```
+```javascript
+ // "pythonPath": "${config.python.pythonPath}" 에서
+ // "${config.python.pythonPath}" 은 settings.json 파일에서 설정한 값을 불러옴 
 ```
      ![Python Path Ex]({{ site.baseurl }}/assets/images/python-with-visual-studio-code/pythonpath-ex.png)
   * 디버깅 실행(파일 선택후 F5)
