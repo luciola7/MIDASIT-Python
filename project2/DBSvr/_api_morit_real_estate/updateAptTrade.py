@@ -11,13 +11,14 @@ apiQueryKey = 'aI474NdT71RfYAP8R1alaVKdyR8ZYuNMyjdysTlEAfCWRpbxHQHnR97yOdbKKfA4F
 password = urllib.parse.quote('mid@sit')
 user = 'hjang'
 client = MongoClient('mongodb://' + user + ':' + password + '@192.168.7.75:27017/')
+# http://192.168.7.75:8081
 
 db = client['_api_morit_real_estate']
 collection = db['LAWD_CD']
 
 colAptTrade = db['APT_TRADE'] 
 
-# year 년
+# year 년 
 # month 월
 # date 일
 # dong 법정동
@@ -38,6 +39,7 @@ for document in cursor:
         apiQueryCode = document["code"]
         reqQuery = urllib.request.urlopen(apiQueryURL + 'LAWD_CD=' + str(apiQueryCode) + '&DEAL_YMD=' + str(apiQyeryMonth) + '&serviceKey=' + apiQueryKey)
         result = reqQuery.read().decode('utf-8')
+        print(result)
         root = xml.etree.ElementTree.fromstring(result)
         for child in root:
             if (child.tag == 'body'):
