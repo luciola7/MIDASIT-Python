@@ -18,6 +18,8 @@ collection = db['LAWD_CD']
 
 colAptTrade = db['APT_TRADE'] 
 
+# subadr, dong, apt address, ltan(좌표)
+
 # year 년 
 # month 월
 # date 일
