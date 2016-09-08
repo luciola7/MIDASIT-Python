@@ -2,8 +2,13 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
-    "command": "python",
+    "command": "${config.python.pythonCommand}",
     "isShellCommand": true,
-    "args": ["${file}"],
-    "showOutput": "always"
+    "showOutput": "always",
+    "echoCommand": true,
+    "tasks": [
+        {"taskName": "run python",
+            "args": ["${file}"],
+            "suppressTaskName": true}
+    ]
 }

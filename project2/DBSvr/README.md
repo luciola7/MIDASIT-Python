@@ -1,3 +1,8 @@
+# 개발 환경 설치
+1. 파이썬 3 설치
+2. 파이썬 실행경로 환경변수 등록(설치 방법에 따라서 자동들록되기도 함)
+3. PYTHONPATH 환경 변수 추가(DBSver의 상위 디렉토리, ....\GitHub\repo\MIDASIT-Python\project2)
+
 # 현재 개발용으로 운영중인 서버 주소
 1. MongoDB Server : 192.168.7.75:27017
 2. MongoDB Express : 192.168.7.75:8081

@@ -1,0 +1,8 @@
+// 설정을 이 파일에 넣어서 기본 설정을 덮어씁니다.
+{
+    // 파이썬 실행파일 경로입니다.
+    "python.pythonPath": "C:/Program Files (x86)/Python35-32/python.exe",
+
+    // 파이썬 실행 명령어 입니다.
+    "python.pythonCommand": "python"
+}

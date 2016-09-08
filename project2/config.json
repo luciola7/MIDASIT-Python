@@ -1,0 +1,17 @@
+{
+    "DBSvr" :{
+        "apiQueryURL" : "http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?",
+        "apiQyeryMonth" : "201601",
+        "apiQueryKey" : "aI474NdT71RfYAP8R1alaVKdyR8ZYuNMyjdysTlEAfCWRpbxHQHnR97yOdbKKfA4Fd6BSdLfGLw9jZj9OTP7lA%3D%3D"
+    },
+    "mongodb":{
+        "protocol": "mongodb://",
+        "address": "192.168.7.75:27017",
+        "username": "hjang",
+        "password": "mid@sit"
+    },
+    "mongoexpress":{
+        "protocol": "http://",
+        "address": "192.168.7.75:8081"
+    }
+}
